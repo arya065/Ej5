@@ -47,4 +47,7 @@ public class Empresa {
         }
          */
     }
+    public void anadirCar(Vehiculos car){
+        car.anadirCars(car);
+    }
 }
