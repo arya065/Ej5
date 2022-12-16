@@ -7,16 +7,20 @@ public class Vehiculos {
     private String mark;
     private int cubos;
     private String carName;
+    private String color;
+    private double tarifa;
     private Vehiculos[] listaCars;
     private int numCars;
 
     public Vehiculos() {
     }
 
-    public Vehiculos(String mark, int cubos, String carName) {
+    public Vehiculos(String mark, int cubos, String carName, String color, double tarifa) {
         this.mark = mark;
         this.cubos = cubos;
         this.carName = carName;
+        this.color = color;
+        this.tarifa = tarifa;
     }
 
     @Override

@@ -18,7 +18,7 @@ public class Empresa {
     public void andirCliente(Persona pers){
         pers.anadirPers(pers);
     }
-    public int buscarCliente(Persona cliente) {
+    public int buscarCliente(Persona cliente) {//поиск в каталоге клиентов
         int index = cliente.buscarPers(cliente);
         return index;
 

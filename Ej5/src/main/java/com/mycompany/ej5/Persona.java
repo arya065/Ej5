@@ -5,7 +5,7 @@ public class Persona {
     private String name;
     private int age;
     private String nif;
-    private Persona[] lista;
+//    private Persona[] lista;
     private int numPers;
 
     public Persona() {
