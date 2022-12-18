@@ -5,70 +5,36 @@ import java.util.*;
 public class Vehiculos {
 
     private String mark;
-    private int cubos;
+    private int volumen;
     private String carName;
     private String color;
     private double tarifa;
-    private Vehiculos[] listaCars;
-    private int numCars;
+    private String bastitud;
 
     public Vehiculos() {
     }
 
-    public Vehiculos(String mark, int cubos, String carName, String color, double tarifa) {
+    public Vehiculos(String mark, int volumen, String carName, String color, double tarifa, String bastitud) {
         this.mark = mark;
-        this.cubos = cubos;
+        this.volumen = volumen;
         this.carName = carName;
         this.color = color;
         this.tarifa = tarifa;
+        this.bastitud = bastitud;
     }
 
     @Override
     public String toString() {
-        return "Vehiculos{" + "mark=" + mark + ", cubos=" + cubos + ", carName=" + carName + '}';
+        return "Vehiculos{" + "mark=" + mark + ", volumen=" + volumen + ", carName=" + carName + ", color=" + color + ", tarifa=" + tarifa + ", bastitud=" + bastitud + '}';
     }
+    
+    public String getBastitud() {
+        return bastitud;
+    }
+    
 
-    public Vehiculos[] copy(Vehiculos[] array) {
-        Vehiculos[] copied = new Vehiculos[array.length + 1];
-        for (int i = 0; i < copied.length; i++) {
-            copied[i] = array[i];
-        }
-        return copied;
+    public int getVolumen() {
+        return volumen;
     }
-
-    public int getNumCars() {
-        return numCars;
-    }
-
-    public boolean borrarCar(Vehiculos car) {
-        int tmp = buscarCar(car);
-        if (tmp != -1) {
-            this.listaCars[tmp] = null;
-            this.numCars--;
-            return true;
-        }
-        return false;
-    }
-
-    public int buscarCar(Vehiculos car) {
-        for (int i = 0; i < listaCars.length; i++) {
-            if (listaCars[i].equals(car)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public void anadirCars(Vehiculos car) {
-        if (this.listaCars[listaCars.length-1] != null) {
-            for (int i = 0; i < listaCars.length; i++) {
-                if (listaCars[i].equals(null)) {
-                    listaCars[i] = car;
-                }
-            }
-        } else {
-            this.listaCars = copy(listaCars);
-            listaCars[listaCars.length - 1] = car;
-        }
-    }
+    
 }

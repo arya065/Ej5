@@ -4,50 +4,55 @@ public class Empresa {
 
     private String cif;
     private String name;
-    private Persona[] clientes;
-    private Vehiculos[] cars;
-    private String[] alquileres;
+    private PersonaCatalogo clientes;
+    private VehiculosCatalogo cars;
+    private AlquilerCatalogo alquileres;
 
     public Empresa(String cif, String name) {
         this.cif = cif;
         this.name = name;
-        this.clientes = new Persona[10];
-        this.cars = new Vehiculos[10];
-        this.alquileres = new String[10];
-    }
-    public void andirCliente(Persona pers){
-        pers.anadirPers(pers);
-    }
-    public int buscarCliente(Persona cliente) {//поиск в каталоге клиентов
-        int index = cliente.buscarPers(cliente);
-        return index;
-
-        /*public int buscarPers(Persona pers) {
-        for (int i = 0; i < lista.length; i++) {
-            if (lista[i].equals(pers)) {
-                return i;
-            }
-        }
-        return -1;
-        }*/
+        this.clientes = new PersonaCatalogo(10);
+        this.cars = new VehiculosCatalogo(10);
+        this.alquileres = new AlquilerCatalogo(10);
     }
 
-    public int buscarVehiculo(Vehiculos car) {
-        int index = car.buscarCar(car);
+    public void anadirCliente(Persona cliente) {//добавление клиента
+        clientes.anadirPers(cliente);
+    }
+
+    public int buscarCliente(String nif) {//поиск в каталоге клиентов
+        int index = clientes.buscarConNif(nif);
         return index;
+    }
+
+    public int buscarVehiculo(String bastitud) {//поиск машины
+        int index = cars.buscarConBastid(bastitud);
+        return index;
+    }
+
+    public void anadirCar(Vehiculos car) {//добавление машины
+        cars.anadirCars(car);
+    }
+    public String printPers(){
+        String a = clientes.imprimCatalogo();
+        return a;
         
-        /*
-        public int buscarCar(Vehiculos car) {
-        for (int i = 0; i < listaCars.length; i++) {
-            if (listaCars[i].equals(car)) {
-                return i;
-            }
-        }
-        return -1;
-        }
-         */
     }
-    public void anadirCar(Vehiculos car){
-        car.anadirCars(car);
+    public String printCars(){
+        String a = cars.imprimCatalogo();
+        return a;
     }
+
+    public PersonaCatalogo getClientes() {
+        return clientes;
+    }
+
+    public VehiculosCatalogo getCars() {
+        return cars;
+    }
+
+    public AlquilerCatalogo getAlquileres() {
+        return alquileres;
+    }
+    
 }

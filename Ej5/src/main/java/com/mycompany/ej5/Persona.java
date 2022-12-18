@@ -1,78 +1,66 @@
 package com.mycompany.ej5;
 
+import java.util.*;
+import org.apache.commons.lang3.RandomStringUtils;//импорт архивов в файл pom
+
 public class Persona {
 
     private String name;
+    private Nombre nombre;
     private int age;
     private String nif;
-//    private Persona[] lista;
-    private int numPers;
 
-    public Persona() {
-    }
-
-    public Persona(String name, int age, String nie) {
+    public Persona(String name, int age) {
         this.name = name;
         this.age = age;
-        this.nif = nie;
+        this.nif = generaNif();
     }
 
-    public Persona(int numeroPers) {
-        numeroPers = Math.abs(numeroPers);
-        this.numPers = numeroPers;
-        this.lista = new Persona[numeroPers];
-        for (int i = 0; i < lista.length; i++) {
-            this.lista[i] = new Persona();
-        }
+    public Persona() {
+        
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "lista=" + lista + '}';
-    }
-
-    public Persona[] copy(Persona[] array) {
-        Persona[] copied = new Persona[array.length + 1];
-        for (int i = 0; i < copied.length; i++) {
-            copied[i] = array[i];
+        if (name == null) {
+            return "Persona{" + "name=" + nombre + ", age=" + age + ", nif=" + nif + '}';
         }
-        return copied;
+        return "Persona{" + "name=" + name + ", age=" + age + ", nif=" + nif + '}';
+
     }
 
-    public int getNumPers() {
-        return numPers;
+    private String generaNif() {
+        Random rand = new Random();
+        int numRand = rand.nextInt(99999999 + 1);
+        String nif = "" + numRand;
+        numRand = Math.round(numRand % 23);
+        String letras = "TRWAGMYFPDXBNJZSQVHLCK";
+        char letraNif = letras.charAt(numRand);
+        nif += letraNif;
+        return nif;
     }
 
-    public boolean borrarPers(Persona pers) {
-        int tmp = buscarPers(pers);
-        if (tmp != -1) {
-            this.lista[tmp] = null;
-            this.numPers--;
-            return true;
-        }
-        return false;
+    private Nombre generaNombre() { //генерирует имя из enum
+        Random rand = new Random();
+        int numRand = rand.nextInt(4);
+        return Nombre.values()[numRand];
     }
 
-    public int buscarPers(Persona pers) {
-        for (int i = 0; i < lista.length; i++) {
-            if (lista[i].equals(pers)) {
-                return i;
-            }
-        }
-        return -1;
+    public String getNif() {
+        return nif;
     }
 
-    public void anadirPers(Persona pers) {
-        if (this.lista[lista.length-1] != null) {
-            for (int i = 0; i < lista.length; i++) {
-                if (lista[i].equals(null)) {
-                    lista[i] = pers;
-                }
-            }
-        } else {
-            this.lista = copy(lista);
-            lista[lista.length - 1] = pers;
-        }
+    public int getAge() {
+        return age;
     }
 
+}
+
+enum Nombre {
+    JUAN,
+    EDUARDO,
+    ANTONIO,
+    JOSH,
+    Carlos,
+    Mike
 }
