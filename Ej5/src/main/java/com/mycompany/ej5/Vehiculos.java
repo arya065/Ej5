@@ -28,6 +28,8 @@ public class Vehiculos {
         return "Vehiculos{" + "mark=" + mark + ", volumen=" + volumen + ", carName=" + carName + ", color=" + color + ", tarifa=" + tarifa + ", bastitud=" + bastitud + '}';
     }
     
+    
+    
     public String getBastitud() {
         return bastitud;
     }

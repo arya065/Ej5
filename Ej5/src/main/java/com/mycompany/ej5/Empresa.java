@@ -20,14 +20,14 @@ public class Empresa {
         clientes.anadirPers(cliente);
     }
 
-    public int buscarCliente(String nif) {//поиск в каталоге клиентов
-        int index = clientes.buscarConNif(nif);
-        return index;
+    public Persona buscarCliente(String nif) {//поиск в каталоге клиентов
+        Persona persMethod = clientes.buscarConNif(nif);
+        return persMethod;
     }
 
-    public int buscarVehiculo(String bastitud) {//поиск машины
-        int index = cars.buscarConBastid(bastitud);
-        return index;
+    public Vehiculos buscarVehiculo(String bastitud) {//поиск машины
+        Vehiculos carMethod = cars.buscarConBastid(bastitud);
+        return carMethod;
     }
 
     public void anadirCar(Vehiculos car) {//добавление машины

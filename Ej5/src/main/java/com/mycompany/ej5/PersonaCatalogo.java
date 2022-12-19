@@ -49,14 +49,14 @@ public class PersonaCatalogo {
         return -1;
     }
 
-    public int buscarConNif(String nif) {
+    public Persona buscarConNif(String nif) {
         for (int i = 0; i < lista.length; i++) {
             Persona persMethod = lista[i];
-            if (persMethod.getNif().equals(nif)){
-                return i;
+            if (persMethod.getNif().equalsIgnoreCase(nif)){
+                return persMethod;
             }
         }
-        return -1;
+        return null;
     }
 
     public void anadirPers(Persona pers) {

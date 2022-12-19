@@ -67,14 +67,14 @@ public class VehiculosCatalogo {
         }
     }
 
-    public int buscarConBastid(String bastitud) {
+    public Vehiculos buscarConBastid(String bastitud) {
         for (int i = 0; i < listaCars.length; i++) {
             Vehiculos carMethod = listaCars[i];
             if (carMethod.getBastitud().equalsIgnoreCase(bastitud)) {
-                return i;
+                return carMethod;
             }
         }
-        return -1;
+        return null;
     }
 
 }
