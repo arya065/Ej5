@@ -21,9 +21,6 @@ public class AlquilerCatalogo {
         }
     }
 
-    public void borrarAlquiler(Alquiler contracto) {
-
-    }
     
     public Alquiler[] copy(Alquiler[] array){
         Alquiler[] copied = new Alquiler[array.length+1];

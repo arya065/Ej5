@@ -1,5 +1,13 @@
 package com.mycompany.ej5.subclases;
 
-public class PersonaCatalogo extends Catalogo{
+import java.util.*;
+
+public class PersonaCatalogo extends Catalogo {
+
+    private ArrayList<Persona> listClientes;
+
+    public PersonaCatalogo(int numPers) {
+        this.listClientes = new ArrayList<>(numPers);
+    }
     
 }
