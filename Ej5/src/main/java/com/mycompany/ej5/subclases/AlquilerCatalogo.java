@@ -4,11 +4,7 @@ import java.util.*;
 
 public class AlquilerCatalogo extends Catalogo {
 
-    private ArrayList<Alquiler> listContracts;
-
     public AlquilerCatalogo() {
-        this.listContracts = new ArrayList<>();;
     }
-    
 
 }

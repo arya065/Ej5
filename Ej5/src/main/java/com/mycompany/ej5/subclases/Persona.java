@@ -22,6 +22,7 @@ public class Persona {
     public Persona(int age) {// генерирует имя из Enum
         this.age = age;
         this.nombre = generaNombre();
+        this.nif = generaNif();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class Persona {
 
     private String generaNif() {
         Random rand = new Random();
-        int numRand = rand.nextInt(99999999 + 1);
+        int numRand = rand.nextInt(99999998) + 1;
         String nif = "" + numRand;
         numRand = Math.round(numRand % 23);
         String letras = "TRWAGMYFPDXBNJZSQVHLCK";
